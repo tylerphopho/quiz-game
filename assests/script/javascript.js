@@ -1,7 +1,7 @@
 var start = "startBtn"
 
 $(document).ready(function(){
-    $(".startBtn").click(function(){
+    $(".start").click(function(){
         $("#startMenu").hide();
     })
 });
