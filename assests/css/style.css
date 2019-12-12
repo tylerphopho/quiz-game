@@ -33,3 +33,7 @@
 .hide {
     display: none;
 }
+
+.message {
+    padding-left: 10px;
+}

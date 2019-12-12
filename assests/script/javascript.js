@@ -7,7 +7,9 @@ var questionIndex = 0;
 var score = 0;
 var card = $("#card");
 var seconds = $("#countdown");
+var message = document.getElementById("message");
 var currentQuestion = questionsArray[questionIndex];
+
 
 $(document).ready(function(){
     startBtn.on("click", startQuiz);
@@ -32,35 +34,40 @@ function startQuiz() {
 
     console.log(currentQuestion)
 }
+    //Function to display the questions.
+    function displayQuestion() {
+        answerBtn.empty();
+    
+        questionEl.text(currentQuestion.title);
+        $.each(currentQuestion.choices, function (index, choice){
+            var newBtn = $("<button>");
+            newBtn.text(choice);
+            newBtn.addClass("btn btn-info");
+            answerBtn.append(newBtn);
+            questionIndex++
+        })
+        nextBtn.removeClass("hide")
+    }
+    
+    function setNextQuestion() {
+        displayQuestion(currentQuestion);
+        currentQuestion = questionsArray[questionIndex];
+    
+    }
+    
+    function selectAnswer(e) {
+        console.log(e.target.innerHTML)
+        console.log(currentQuestion)
+        if (e.target.innerHTML === currentQuestion.answer){
+            setMessage("Correct!", "green")
+        } else if ($(e.target).text() !== currentQuestion.answer && $(e.target).hasClass("btn")) {
+            setMessage("Wrong!", "red")
+        };
+    }
+
+    function setMessage(msg, color) {
+        message.style.color = color
+        message.textContent = msg;
+    }
 
 });
-
-    //Function to display the questions.
-function displayQuestion() {
-    answerBtn.empty();
-
-    questionEl.text(currentQuestion.title);
-    $.each(currentQuestion.choices, function (index, choice){
-        var newBtn = $("<button>");
-        newBtn.text(choice);
-        newBtn.addClass("btn btn-info");
-        answerBtn.append(newBtn);
-        questionIndex++
-    })
-    nextBtn.removeClass("hide")
-}
-
-function setNextQuestion() {
-    displayQuestion(currentQuestion);
-    currentQuestion = questionsArray[questionIndex];
-
-}
-
-function selectAnswer(e) {
-    console.log(e.target.innerHTML)
-    console.log(currentQuestion)
-    if (e.target.innerHTML === currentQuestion.answer){
-        $("#card")
-
-    }
-}
