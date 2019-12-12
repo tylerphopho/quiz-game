@@ -14,9 +14,10 @@ $(document).ready(function(){
     answerBtn.on("click", selectAnswer);
     nextBtn.on("click", setNextQuestion);
 
+
+    //Function to start timer and quiz.
 function startQuiz() {
     var seconds = document.getElementById("countdown").textContent;
-    seconds.removeClass("hide");
     var countdown = setInterval(function(){
         seconds--;
         document.getElementById("countdown").textContent = seconds;
@@ -34,13 +35,14 @@ function startQuiz() {
 
 });
 
+    //Function to display the questions.
 function displayQuestion() {
     answerBtn.empty();
 
     questionEl.text(currentQuestion.title);
-    $.each(currentQuestion.choices, function(index, choice){
+    $.each(currentQuestion.choices, function (index, choice){
         var newBtn = $("<button>");
-        nextBtn.text(choice);
+        newBtn.text(choice);
         newBtn.addClass("btn btn-info");
         answerBtn.append(newBtn);
         questionIndex++
@@ -49,7 +51,16 @@ function displayQuestion() {
 }
 
 function setNextQuestion() {
-    showQuestion(currentQuestion);
+    displayQuestion(currentQuestion);
     currentQuestion = questionsArray[questionIndex];
 
+}
+
+function selectAnswer(e) {
+    console.log(e.target.innerHTML)
+    console.log(currentQuestion)
+    if (e.target.innerHTML === currentQuestion.answer){
+        $("#card")
+
+    }
 }
