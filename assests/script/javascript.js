@@ -1,12 +1,12 @@
 var startBtn = $("#start-btn");
-var nextBtn = $("next-btn");
-var answerBtn = $("answer-buttons")
-var questionsContainer = $("question-container");
-var questionEl = $("question")
+var nextBtn = $("#next-btn");
+var answerBtn = $("#answer-buttons");
+var questionsContainer = $("#question-container");
+var questionEl = $("#question");
 var questionIndex = 0;
 var score = 0;
-var card = $("card")
-var seconds = $("countdown");
+var card = $("#card");
+var seconds = $("#countdown");
 var currentQuestion = questionsArray[questionIndex];
 
 $(document).ready(function(){
@@ -16,6 +16,7 @@ $(document).ready(function(){
 
 function startQuiz() {
     var seconds = document.getElementById("countdown").textContent;
+    seconds.removeClass("hide");
     var countdown = setInterval(function(){
         seconds--;
         document.getElementById("countdown").textContent = seconds;
@@ -26,9 +27,29 @@ function startQuiz() {
     questionIndex = 0;
     currentQuestion = questionsArray[questionIndex];
     questionsContainer.removeClass("hide");
-    showQuestion(currentQuestion);
+    displayQuestion(currentQuestion);
 
     console.log(currentQuestion)
 }
 
 });
+
+function displayQuestion() {
+    answerBtn.empty();
+
+    questionEl.text(currentQuestion.title);
+    $.each(currentQuestion.choices, function(index, choice){
+        var newBtn = $("<button>");
+        nextBtn.text(choice);
+        newBtn.addClass("btn btn-info");
+        answerBtn.append(newBtn);
+        questionIndex++
+    })
+    nextBtn.removeClass("hide")
+}
+
+function setNextQuestion() {
+    showQuestion(currentQuestion);
+    currentQuestion = questionsArray[questionIndex];
+
+}

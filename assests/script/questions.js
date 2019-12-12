@@ -11,4 +11,4 @@ var questionsArray = [
       answer: "parentheses"
     },
 
-  ];
+  ]
