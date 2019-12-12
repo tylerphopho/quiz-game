@@ -5,9 +5,12 @@
     margin: 20px, 0;
 }
 
+.card-container {
+    margin: 90px;
+    padding: 90px;
+}
+
 .start-btn, .next-btn {
-    font-size: 1.5rem;
-    font-weight: bold;
     padding: 10px 20px;
 }
 

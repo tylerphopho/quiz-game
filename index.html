@@ -5,34 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Web-API</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
     <link rel="stylesheet" href="assests/css/style.css">
     <link rel="shortcut icon" href="favicon.ico"> 
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <div class="navbar">
-    <div class="container">
-        <h2 class="text-white">View Highscores</h2>
-        <h2 class="text-white">Timer: <span id="countdown">60</span>></h2>
+    <div class="navbar-container">
+        <button class="btn btn-info">View Highscores</button>
+        <h2 class="text hide">Timer: <span id="countdown">60</span>></h2>
     </div>
 </div>
 </nav>
-
-<div class="container card">
-    <div id="questions-box" class="card-body hide">
-        <div id="questions">Questions</div>
-        <div id="answer-buttons" class="btn-grid">
-            <button class="btn btn-info">Answer 1</button>
-            <button class="btn btn-info">Answer 2</button>
-            <button class="btn btn-info">Answer 3</button>
-            <button class="btn btn-info">Answer 4</button>
+<div class="card-container bg-light mb-3">
+    <div class="card text-center">
+        <div class="card-body">
+            <h5 class="card-title">Code Quiz</h5>
+            <div id="question-container" class="hide">
+                <div id="question-text">Question</div>
+                    <div id="answer-buttons" class="btn-grid">
+                        <button class="btn btn-info">Answer 1</button>
+                        <button class="btn btn-info">Answer 2</button>
+                        <button class="btn btn-info">Answer 3</button>
+                        <button class="btn btn-info">Answer 4</button>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="start-btn" class="btn btn-success">Start</button>
+                <button id="next-btn" class="btn btn-warning hide">Next</button>
+            </div>
         </div>
-    </div>
-    <div class="controls">
-        <button id="start-btn" class="btn btn-success">Start Quiz</button>
-        <button id="next-btn" class="btn btn-danger hide">Next Questions</button>
     </div>
 </div>
 
