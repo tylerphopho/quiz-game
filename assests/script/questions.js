@@ -10,8 +10,5 @@ var questionsArray = [
       choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
       answer: "parentheses"
     },
-    ///etc.
+
   ];
-
-
-  console.log(questions[0].title);
