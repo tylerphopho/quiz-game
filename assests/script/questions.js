@@ -17,7 +17,14 @@ var questionsArray = [
       answer: "CSS"
     },
     {
-      title: ""
+      title: "What Month/Year did the RMS Titanic Sink?",
+      choices: ["May/1968", "April/1912", "September/1875", "August/2013"],
+      answer: "April/1912"
+    }
+    {
+      title: "What is 5 x 4?"
+      choices: ["9", "16", "54", "20"],
+      answer: "20"
     }
 
   ]
