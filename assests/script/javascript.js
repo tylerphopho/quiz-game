@@ -1,5 +1,4 @@
 var startBtn = $("#start-btn");
-var nextBtn = $("#next-btn");
 var answerBtn = $("#answer-buttons");
 var questionsContainer = $("#question-container");
 var questionEl = $("#question");
@@ -14,7 +13,7 @@ var currentQuestion = questionsArray[questionIndex];
 $(document).ready(function(){
     startBtn.on("click", startQuiz);
     answerBtn.on("click", selectAnswer);
-    nextBtn.on("click", setNextQuestion);
+    //nextBtn.on("click", setNextQuestion);
 
 
     //Function to start timer and quiz.
@@ -28,7 +27,7 @@ function startQuiz() {
 
     startBtn.addClass("hide");
     questionIndex = 0;
-    currentQuestion = questionsArray[questionIndex];
+    currentQuestion = questionsArray[questionIndex] ;
     questionsContainer.removeClass("hide");
     displayQuestion(currentQuestion);
 
@@ -45,24 +44,23 @@ function startQuiz() {
             newBtn.addClass("btn btn-info");
             answerBtn.append(newBtn);
         })
-
-        nextBtn.removeClass("hide")
     }
     
     function setNextQuestion() {
         questionIndex++
-        displayQuestion(currentQuestion);
         currentQuestion = questionsArray[questionIndex];
+        displayQuestion(currentQuestion)
+        console.log(currentQuestion)
+        
     }
     
     function selectAnswer(e) {
         console.log(e.target.innerHTML)
-        console.log(currentQuestion)
         if (e.target.innerHTML === currentQuestion.answer){
             setMessage("Correct!", "green")
         } else { ($(e.target).text() !== currentQuestion.answer && $(e.target).hasClass("btn"))
             setMessage("Wrong!", "red")
-        };
+        } 
         setNextQuestion();
     }
 
