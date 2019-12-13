@@ -5,11 +5,17 @@
     margin: 20px, 0;
 }
 
+#scoreboard-btn{
+    width: 20%;
+    padding: 10px 20px;
+}
+
 .btn-info {
     width: 100%;
     margin: 10px;
     border: 1px solid;
 }
+
 
 .card-container {
     margin: 90px;
