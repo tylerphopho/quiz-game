@@ -44,15 +44,15 @@ function startQuiz() {
             newBtn.text(choice);
             newBtn.addClass("btn btn-info");
             answerBtn.append(newBtn);
-            questionIndex++
         })
+
         nextBtn.removeClass("hide")
     }
     
     function setNextQuestion() {
+        questionIndex++
         displayQuestion(currentQuestion);
         currentQuestion = questionsArray[questionIndex];
-    
     }
     
     function selectAnswer(e) {
@@ -60,9 +60,10 @@ function startQuiz() {
         console.log(currentQuestion)
         if (e.target.innerHTML === currentQuestion.answer){
             setMessage("Correct!", "green")
-        } else if ($(e.target).text() !== currentQuestion.answer && $(e.target).hasClass("btn")) {
+        } else { ($(e.target).text() !== currentQuestion.answer && $(e.target).hasClass("btn"))
             setMessage("Wrong!", "red")
         };
+        setNextQuestion();
     }
 
     function setMessage(msg, color) {
