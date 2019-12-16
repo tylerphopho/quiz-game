@@ -13,7 +13,6 @@ var userScore = $("#user-score");
 var userForm = $("#user-form");
 var userList = $("#user-list");
 var userName = $("#user-name");
-// var lastUser = JSON.parse(localStorage.getItem("userArr"));
 var userInput = document.querySelector("#user-list");
 var submitBtn = $("#submit-button")
 var gameOverDV = $("#game-over");
@@ -43,7 +42,7 @@ function startTimer() {
         }
     }
     
-    
+
     function startQuiz() {  
     quizInfo.addClass("hide")
     Timer.removeClass("hide")
@@ -70,10 +69,7 @@ function startTimer() {
             newBtn.addClass("btn btn-info");
             answerBtn.append(newBtn);
         })
-        //     if(currentQuestion >= questionsArray.length) {
-        //     gameOver();
-        // }
-        
+
     }
     
     function setNextQuestion() {
@@ -87,7 +83,7 @@ function startTimer() {
         
         
     }
-    
+    //Function to select answers and move onto the next question
     function selectAnswer(e) {
         console.log(e.target.innerHTML)
         if (e.target.innerHTML === currentQuestion.answer){
@@ -119,7 +115,7 @@ function startTimer() {
         userForm.removeClass("hide")
 
     }
-
+    //Function to save to local storage
     function submitUser (e) {
         localStorage.setItem("userArr", JSON.stringify(userArr));
         $.each(userArr, function (index, options) {
