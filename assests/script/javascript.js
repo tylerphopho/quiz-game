@@ -74,10 +74,10 @@ function startTimer() {
     
     function setNextQuestion() {
         currentQuestion = questionsArray[questionIndex];
-        displayQuestion(currentQuestion)
         if(questionIndex >= questionsArray.length) {
             gameOver();
         }
+        displayQuestion(currentQuestion);
 
         console.log(currentQuestion)
         
@@ -127,7 +127,7 @@ function startTimer() {
             userArr.sort((a,b) => b.score - a.score );
             userArr.splice(5);
             var userArr = JSON.parse(localStorage.getItem("userArr"));
-            // userInputSpan.textContent = lastUser.userInput;
+            // document.getElementById("user-list").innerHTML = localStorage.getItem("userArr");
         })
         e.preventDefault()
     };
