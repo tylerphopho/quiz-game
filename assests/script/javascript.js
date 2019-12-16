@@ -79,7 +79,7 @@ function startTimer() {
     function setNextQuestion() {
         currentQuestion = questionsArray[questionIndex];
         displayQuestion(currentQuestion)
-        if(currentQuestion >= questionsArray.length) {
+        if(questionIndex >= questionsArray.length) {
             gameOver();
         }
 
@@ -130,7 +130,7 @@ function startTimer() {
             userArr.push(userName);
             userArr.sort((a,b) => b.score - a.score );
             userArr.splice(5);
-            // var lastUser = JSON.parse(localStorage.getItem("userArr"));
+            var userArr = JSON.parse(localStorage.getItem("userArr"));
             // userInputSpan.textContent = lastUser.userInput;
         })
         e.preventDefault()
